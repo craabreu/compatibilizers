@@ -1,9 +1,22 @@
 \documentclass[
-aip,
-jcp,
-%preprint,
-reprint,
-]{revtex4-1}
+journal=mamobx,
+manuscript=article,
+%layout=twocolumn
+]{achemso}
+
+%\setkeys{acs}{
+%	abbreviations = false,
+%	articletitle  = false,
+%	keywords      = false,
+%	maxauthors    = 10,
+%	super         = true
+%}
+
+% ===== Comment below before submitting:
+%\let\titlefont\undefined
+%\usepackage[fontsize=11pt]{scrextend}
+%\flushbottom
+% ===== Up to this point
 %
 \usepackage[hyperindex,breaklinks,hidelinks,colorlinks,citecolor=blue]{hyperref}
 \usepackage{amsmath, amsthm, amssymb, mathtools}    
@@ -30,6 +43,7 @@ reprint,
 \newcommand{\angstrom}{\mathring{A}}                   % Angstrom symbol
 %
 \usepackage{colortbl}
+\usepackage{rotating}
 \newcommand{\biphasic}[0]{\cellcolor{blue^^2120}{biphasic}}
 \newcommand{\lamellae}[0]{\cellcolor{cyan^^2120}{lamellae}}
 \newcommand{\defectivelamellae}[0]{\cellcolor{green^^2120}{defective lamellae}}
@@ -45,7 +59,6 @@ reprint,
 \soulregister\ce7
 \usepackage[utf8]{inputenc}
 %
-\begin{document}
 
 \author{Tiago Lemos}
 \email{tlemos@peq.coppe.ufrj.br}
@@ -64,6 +77,8 @@ reprint,
 \keywords{dissipative particle dynamics; self-assembly; polymer blends; structure factor}
 
 \date{\today}
+
+\begin{document}
 
 \begin{abstract}
 Blends prepared by mixing incompatible homopolymers with a compatibilizing copolymer (produced by repeting units that are compatible with each homopolymer) attract high technological interest due to their self-assembling behavior.
@@ -264,10 +279,10 @@ A modified velocity-Verlet scheme was employed to integrate the equations of mot
 Periodic boundary conditions were adopted.
 Some parameter values shared by all simulations are shown in Table~\ref{table:parameters}.
 
-\begin{table}
+\begin{table*}
 	\centering
 	\caption{Parameter values used to perform the simulations.}
-	\begin{tabular}{lc}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lc}
 		\hline\hline
 		Parameter & Value [reduced units] \\
 		\hline
@@ -280,8 +295,8 @@ Some parameter values shared by all simulations are shown in Table~\ref{table:pa
 		Time step & $\delta t = 0.03$ \\
 		\hline\hline
 		\label{table:parameters} 
-	\end{tabular}
-\end{table}
+	\end{tabular*}
+\end{table*}
 
 The simulations were performed with $\rho = 3$ in cubic boxes of volume $V = L_\mathrm{box}^3 = 25^3$, so that each simulation describes the dynamics of approximately $46875$ beads.
 Following Eq.~\eqref{eq:like-particle repulsive parameter}, the adopted repulsion parameter between similar particles was $a_{AA} = a_{BB} = 25$.
@@ -595,7 +610,7 @@ However, as summarized in Table~\ref{table:steps}, transitions in the dispersed 
 Copolymer adsorption at the flat interface of homopolymers & 0.05-0.20 & 0.05-0.25 \\
 Flat interface saturation & 0.25 & 0.30 \\
 Curved Interface & 0.30-0.35 & 0.35-0.45 \\
-Satellite peak formation in $S(q)$, marking the onset of mesophase segregation & 0.40-0.50 & 0.50 \\
+Onset of mesophase segregation & 0.40-0.50 & 0.50 \\
 Establishment of defective lamellae & 0.55-0.70 & 0.55-0.75 \\
 Fully-formed lamellae & 0.75-1.00 & 0.80-1.00 \\
 		\hline\hline
@@ -624,7 +639,7 @@ Besides the non-dispersed case \ce{A5B5}, equimolar mixtures of diblock copolyme
 %\ce{A1B9 + A9B1}, \ce{A2B8 + A8B2}, \ce{A3B7 + A7B3} and \ce{A4B6 + A6B4}, and the \ce{A5B5} non-dispersed case.
 Table~\ref{table:dynamics} summarizes the equilibrium mesophases observed in these simulations in the whole range of analyzed copolymer mass fractions.
 
-\begin{table*}
+\begin{sidewaystable}
 	\centering
 	\caption{Mesophase behavior resulting from varying the amount of copolymers, with different levels of dispersion in their chemical composition distributions, in a blend with non-compatible homopolymers.}
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cccccc}
@@ -654,7 +669,7 @@ $w_{AB}$ & \ce{A1B9 + A9B1} & \ce{A2B8 + A8B2} & \ce{A3B7 + A7B3} & \ce{A4B6 + A
 		\hline\hline
 \label{table:dynamics}
 \end{tabular*}
-\end{table*}
+\end{sidewaystable}
 
 The case \ce{A1B9 + A9B1}, as one can observe in Fig.~\ref{fig:Figure_12}, forms two immiscible phases regardless of the amount of copolymers in the system.
 This behavior differs from the one observed with the diblock copolymer \ce{A5B5}.
@@ -815,26 +830,18 @@ Diblock copolymers with composition $f_A=0.30$ played a surfactant function in s
 Therefore, it can be seen that the microstructural properties of the copolymer decisively impact the morphological characteristics of mesophases generated in the mixing of non-compatible homopolymers, as well as the size and purity of formed domains.
 This means that microstructure control methods, both from polymer reaction engineering and polymer purification techniques, can be important for the design and performance of blends formed by non-compatible homopolymers and copolymers. 
 
-\section*{Acknowledgements}
+\begin{acknowledgement}
 
 The authors thank CAPES (Coordena\c{c}\~ao de Aperfei\c{c}oamento de Pessoal de N\'ivel Superior), CNPq (Conselho Nacional de Desenvolvimento Cient\'ifico e Tecnol\'ogico), and FAPERJ (Funda\c{c}\~ao Carlos Chagas Filho de Apoio a Pesquisa do Estado do Rio de Janeiro) for financial support and scholarships.
 
-\begin{flushright}
-Received:
+\end{acknowledgement}
 
-Revised:
-
-Published online:
-\end{flushright}
-
-\section*{References}
 \bibliography{references}
 
-
-%\section*{ToC text}
-%Our DPD simulations show that the copolymer microstructural properties have a decisive %impact on the interaction and mesophases generated in the mixing process with %non-compatible homopolymers. So that the microstructure control methods, derived from %polymer reaction engineering or from polymer purification, are important for to design and %performance of these blends.
-%
-%\section*{ToC Figure}
-%\includegraphics[width=6.5in]{ToCfigure}
+\begin{tocentry}
+	\includegraphics[width=\linewidth]{ToCfigure}
+	Our DPD simulations show that the copolymer microstructural properties have a decisive impact on the interaction and mesophases generated in the mixing process with non-compatible homopolymers.
+	So that the microstructure control methods, derived from polymer reaction engineering or from polymer purification, are important for to design and performance of these blends.
+\end{tocentry}
 
 \end{document}
